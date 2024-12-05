@@ -1,7 +1,3 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <div>
     <a href="https://vite.dev" target="_blank">
@@ -11,8 +7,28 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
+
+  <el-button @click="open">Default</el-button>
+  <el-button @click="openVn" type="primary">Primary</el-button>
   <HelloWorld msg="Vite + Vue" />
 </template>
+
+<script setup>
+import HelloWorld from './components/HelloWorld.vue'
+
+const open = () => {
+  ElMessage('This is a message.')
+}
+
+const openVn = () => {
+  ElMessage({
+    message: h('p', { style: 'line-height: 1; font-size: 14px' }, [
+      h('span', null, 'Message can be '),
+      h('i', { style: 'color: teal' }, 'VNode'),
+    ]),
+  })
+}
+</script>
 
 <style scoped>
 .logo {

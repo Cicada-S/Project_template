@@ -3,6 +3,13 @@ import globals from 'globals'
 import eslintPluginVue from 'eslint-plugin-vue'
 import stylistic from '@stylistic/eslint-plugin'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
+import { readFileSync } from 'fs'
+import { resolve } from 'path'
+
+// 引入 .eslintrc-auto-import.json
+const autoImportConfig = JSON.parse(
+  readFileSync(resolve(__dirname, '.eslintrc-auto-import.json'), 'utf8')
+)
 
 export default [
   {
@@ -66,6 +73,7 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
+        ...autoImportConfig.globals,
         /** 追加一些其他自定义全局规则 */
         __dirname: true,
       },
