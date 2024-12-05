@@ -1,3 +1,22 @@
 {
-  "recommendations": ["Vue.volar"]
+  "recommendations": ["Vue.volar"],
+  "eslint.enable": true, // 启用ESLint
+  "editor.codeActionsOnSave": { // 编辑器.代码保存时进行的操作--非必要
+    "source.fixAll.eslint": "always" // 通过eslint进行代码修复：总是如此
+  },
+  "eslint.validate": [
+    "javascript",
+    "vue",
+    "vue-html",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "css",
+    "scss",
+    "less",
+    "json",
+    "jsonc",
+    "json5",
+    "markdown"
+  ],
 }
